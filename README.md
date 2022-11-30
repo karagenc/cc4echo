@@ -1,6 +1,6 @@
 # Concurrent Context
 
-This is a thread safe wrapper for [Echo](https://github.com/labstack/echo)'s `Context`. The idea of a thread safe `Context` might seem redundant at first, but given a deep thought, there are times when you run goroutines inside a web handler.
+This is a thread safe wrapper for [Echo](https://github.com/labstack/echo)'s `Context`. The idea of a thread safe `Context` might seem redundant at first, but given a deep thought, there are times when you run goroutines inside an HTTP handler.
 
 **Note:** This is experimental.
 
@@ -34,7 +34,7 @@ e.Start("127.0.0.1:3000")
 
 `Context` has functions that are dangerous to be executed from multiple goroutines. For example have a look at [Request](https://github.com/labstack/echo/blob/0ce73028d0815e0ecec80964cc2da42d98fafa33/context.go#L231) and [SetRequest](https://github.com/labstack/echo/blob/0ce73028d0815e0ecec80964cc2da42d98fafa33/context.go#L235).
 
-Add the route below to your code and compile with race detector enabled: `go build -race`. Then send an HTTP request to it and see what happens.
+Add the route below to your code and compile with race detector enabled: `go build -race`. Then send an HTTP request to it, and see what happens.
 
 ```go
 func(c echo.Context) error {
