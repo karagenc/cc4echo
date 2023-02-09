@@ -11,7 +11,7 @@ This is a thread safe wrapper for [Echo](https://github.com/labstack/echo)'s `Co
 Replace `Context` in place:
 ```go
 func handler(c echo.Context) error {
-	c = New(c)
+	c = cc4echo.New(c)
 	// Run your goroutines here...
 	return nil
 }
@@ -37,7 +37,7 @@ e.Start("127.0.0.1:3000")
 Add the route below to your code and compile with race detector enabled: `go build -race`. Then send an HTTP request to it and see what happens.
 
 ```go
-func(c echo.Context) error {
+func handler(c echo.Context) error {
 	go func() {
 		for i := 0; i < 100; i++ {
 			r := c.Request()
