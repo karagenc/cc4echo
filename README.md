@@ -1,6 +1,6 @@
-# Concurrent Context
+# Concurrency-Safe Context for Echo
 
-This is a concurrent (safe to access from multiple goroutines) wrapper for [Echo](https://github.com/labstack/echo)'s `Context`. The idea of a concurrent `Context` might seem redundant at first, but given a deep thought, there are times when you run goroutines inside an HTTP handler.
+This is a safe to access from multiple goroutines (concurrency-safe) wrapper for [Echo](https://github.com/labstack/echo)'s `Context`. The idea of a custom `Context` for concurrent access might seem redundant at first, but given a deep thought, there are times when you run goroutines inside an HTTP handler.
 
 **Note:** This is experimental.
 
