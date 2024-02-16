@@ -1,6 +1,6 @@
 # Concurrency-Safe Context for Echo
 
-This is a safe to access from multiple goroutines (concurrency-safe) wrapper for [Echo](https://github.com/labstack/echo)'s `Context`. The idea of a custom `Context` for concurrent access might seem redundant at first, but given a deep thought, there are times when you run goroutines inside an HTTP handler.
+This is a safe to access from multiple goroutines (concurrency-safe) wrapper for [Echo](https://github.com/labstack/echo)'s `Context`. The idea of a custom `Context` for concurrent access might seem redundant at first, but given a deep thought, there are times when you run goroutines inside an HTTP handler. For projects that heavily make use of goroutines, I wrapped `Context` with a mutex to make it safe for concurrent access.
 
 **Note:** This is experimental.
 
@@ -8,7 +8,7 @@ This is a safe to access from multiple goroutines (concurrency-safe) wrapper for
 
 `go get -u github.com/tomruk/cc4echo`
 
-Replace `Context` in place:
+### Replace `Context` in place:
 ```go
 func handler(c echo.Context) error {
 	c = cc4echo.New(c)
@@ -17,7 +17,7 @@ func handler(c echo.Context) error {
 }
 ```
 
-Use middleware:
+### Or use middleware:
 ```go
 e := echo.New()
 
