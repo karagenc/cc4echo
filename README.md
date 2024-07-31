@@ -6,7 +6,7 @@ This is a safe to access from multiple goroutines (concurrency-safe) wrapper for
 
 ## Usage
 
-`go get -u github.com/tomruk/cc4echo`
+`go get -u github.com/karagenc/cc4echo`
 
 ### Replace `Context` in place:
 ```go

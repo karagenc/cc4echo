@@ -1,4 +1,4 @@
-module github.com/tomruk/cc4echo
+module github.com/karagenc/cc4echo
 
 go 1.17
 
